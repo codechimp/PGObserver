@@ -23,10 +23,10 @@
 
             {% for h in hosts_with_last_stats: %}
             <tr>
-                <td class="wl_db"><a href="/{{hosts[h['host_id']]['uishortname']}}">{{ hosts[h['host_id']]['uilongname'] }}</a></td>
-                <td class="wl_load"><a href="/{{hosts[h['host_id']]['uishortname']}}">{{ h['last_5min_load'] }}</a></td>
+                <td class="wl_db"><a href="/{{hosts[h['host_id']]['host_ui_shortname']}}">{{ hosts[h['host_id']]['host_ui_longname'] }}</a></td>
+                <td class="wl_load"><a href="/{{hosts[h['host_id']]['host_ui_shortname']}}">{{ h['last_5min_load'] }}</a></td>
                 <td class="wl_size" title="as of last cron aggregation [max 2h delay] if using aggregation">
-                    <a href="/{{hosts[h['host_id']]['uishortname']}}">{{ h['last_agg_size'] }}</a>
+                    <a href="/{{hosts[h['host_id']]['host_ui_shortname']}}">{{ h['last_agg_size'] }}</a>
                 </td>
 
             </tr>

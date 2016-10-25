@@ -7,7 +7,7 @@ psycopg2.extensions.register_type(psycopg2.extensions.UNICODE)
 psycopg2.extensions.register_type(psycopg2.extensions.UNICODEARRAY)
 
 
-connection_string = "dbname=local_pgobserver_db host=localhost user=postgres password=postgres connect_timeout='3'"
+connection_string = "dbname=local_pgobserver_db host=localhost user=postgres password=postgres connect_timeout='3'  sslmode=require"
 
 def setConnectionString(conn_string):
     global connection_string
@@ -41,7 +41,7 @@ def executeOnHost(hostname, port, dbname, user, password, sql, params=None):
     msg = None
     conn = None
     try:
-        conn = psycopg2.connect(host=hostname, port=port, dbname=dbname, user=user, password=password, connect_timeout='3')
+        conn = psycopg2.connect(host=hostname, port=port, dbname=dbname, user=user, password=password, connect_timeout='3',  sslmode='require')
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         cur.execute(sql, params)
         data = cur.fetchall()

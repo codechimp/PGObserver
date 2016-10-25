@@ -83,6 +83,7 @@ def main():
         'host=' + settings['database']['host'],
         'user=' + settings['database']['frontend_user'],
         'port=' + str(settings['database']['port']),
+        'sslmode=require'
     ))
     print 'Setting connection string to ... ' + conn_string
     # finished print conn_string to the world, password can be added
